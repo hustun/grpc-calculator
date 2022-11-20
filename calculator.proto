@@ -1,0 +1,24 @@
+syntax = "proto3";
+option go_package = "hasanustun/grpc-simple";
+package grpc_simple;
+
+message Message {
+  string body = 1;
+}
+
+message CalcRequest {
+  float num1 = 1;
+  float num2 = 2;
+}
+
+message CalcResponse {
+  float res = 1;
+}
+
+service ChatService {
+  rpc SayHello(Message) returns (Message) {}
+  rpc Add(CalcRequest) returns (CalcResponse) {}
+  rpc Subtract(CalcRequest) returns (CalcResponse) {}
+  rpc Multiply(CalcRequest) returns (CalcResponse) {}
+  rpc Divide(CalcRequest) returns (CalcResponse) {}
+}
